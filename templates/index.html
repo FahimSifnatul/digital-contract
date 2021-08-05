@@ -175,8 +175,15 @@
     {% if message.message == "Sign In error" %}
       <script>
         $("#modal_signin_signup").modal('show');
-
         $("#form_sign_in_error").html("Mismatched username-password or create an account first");
+        $("#form_sign_in_error").append("<button type='button' class='close' data-dismiss='alert'>&times;</button>"); 
+        $("#form_sign_in_error").show("fast");
+      </script>
+
+    {% elif message.message == "User not verified" %}
+      <script>
+        $("#modal_signin_signup").modal('show');
+        $("#form_sign_in_error").html("Please verify your account first. Cick on the link sent to your E-mail");
         $("#form_sign_in_error").append("<button type='button' class='close' data-dismiss='alert'>&times;</button>"); 
         $("#form_sign_in_error").show("fast");
       </script>

@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 # custom views
-from home.views import Home
+from home.views import Home, UserVerification
 from account.views import Account
 
 urlpatterns = [
     path('', Home.as_view(), name='home'), # index page
+    path('<verification_token>', UserVerification.as_view(), name='new_user_verification'),
     path('account/', Account.as_view(), name='account'), # user's account
     path('admin/', admin.site.urls, name='admin'),
 ]
